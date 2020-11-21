@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-def train(model, X, y, optimizer, epochs, lambda_w=0, lambda_v=0, verbose=1):
+def GradientDescent(model, X, y, optimizer, epochs, lambda_w=0, lambda_v=0, verbose=1):
     loss_values = []
     for i in range(epochs):
         with tf.GradientTape() as tape:

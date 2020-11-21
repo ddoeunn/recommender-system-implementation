@@ -1,7 +1,6 @@
 import numpy as np
 import tensorflow as tf
 from FM.Model import FM
-from FM.Train import train
 
 # Data
 X = np.array([
@@ -28,7 +27,8 @@ optimizer = tf.keras.optimizers.Adagrad(learning_rate=lr)
 model = FM(X, K)
 
 # Training
-loss_values, y_hat = train(model, X, y, optimizer, epochs, lambda_w, lambda_v, verbose=50)
+loss_values, y_hat = model.fit(X, y, optimizer, epochs, lambda_w, lambda_v, verbose=50)
 
 # Result
 print(y_hat) # y_true = [5, 3, 1, 4, 5, 1, 5]
+print(model.pred(X))
